@@ -164,41 +164,48 @@
 
         </div>
       </section>
+      <%if notice%>
+      <div class="alert alert-success alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <%=notice%>
+      </div>
+      <% end%>
+      <%= form_tag(admin_send_mail_index_path, remote: true) do  %>
 
 
         <div class="row justify-content-center wow bounceInDown" data-wow-delay="1s">
           <div class="col-sm-6">
 
-                    <div class="form-group row">
+              <div class="form-group row">
               <label for="example-text-input" class="col-2 col-form-label">NOMBRE</label>
               <div class="col-10 ">
-                <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+                <%= text_field_tag(:'name-text', nil, class: "form-control", required: "required") %>
               </div>
             </div>
             <div class="form-group row">
               <label for="example-search-input" class="col-2 col-form-label">ASUNTO</label>
               <div class="col-10">
-                <input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
+                <%= text_field_tag(:'asunto-text', nil,id: "recipient-text", class: "form-control", required: "required")%>
+
               </div>
             </div>
             <div class="form-group row">
               <label for="example-email-input" class="col-2 col-form-label">Email</label>
               <div class="col-10">
-                <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
+                <%= email_field_tag(:'to-text', nil,id: "subject-text", class: "form-control", required: "required") %>
               </div>
             </div>
             <div class="form-group row">
               <label for="example-search-input" class="col-2 col-form-label">MENSAJE</label>
               <div class="col-10">
-
-                  <textarea class="form-control" name="name" rows="8" cols="80"></textarea>
+                <%= text_area_tag(:'message-text', nil, class: "form-control", required: "required") %>
               </div>
             </div>
 
             <div class="form-group row">
               <label for="example-search-input" class="col-2 col-form-label"></label>
               <div class="col-10">
-                <button type="button" class="btn btn-outline-info btn-lg btn-block">Enviar <i class="fa fa-share" aria-hidden="true"></i></button>
+                <%= submit_tag 'Enviar', class: "btn btn-outline-info btn-lg btn-block", id:"btn_sub"%>
               </div>
             </div>
 
@@ -208,9 +215,11 @@
           </div>
 
         </div>
+      <% end %>
 
 
       </section>
+
 
 
 

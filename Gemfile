@@ -34,6 +34,13 @@ gem 'paperclip', '~> 5.0.0'
 # gem 'unicorn'
 # Flexible authentication solution for Rails with Warden. http://blog.plataformatec.com.br/tag/…
 gem 'devise'
+gem 'mail_form'
+# Manage Procfile-based applications http://ddollar.github.com/foreman
+gem 'foreman'
+# Catches mail and serves it through a dream.
+gem'mailcatcher'
+gem 'mailgun_rails'
+
 
 
 # Use Capistrano for deployment

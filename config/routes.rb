@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get '/', to:'home#index'
+  get 'admin', to: 'admin/idiomas#index'
 
   namespace :admin do
     resources :home
@@ -8,13 +9,15 @@ Rails.application.routes.draw do
     resources :banners
     resources :trabajos
     resources :empresas
+    resources :send_mail, only: [:edit, :create]
 
-    get 'eliminar/:id', to: 'idiomas#update_destroy'
+    get 'idiomas', to: 'idiomas#index'
+    # get 'eliminar/:id', to: 'idiomas#update_destroy'
   end
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
   end
-  get "*path", to: redirect('/')
+  # get "*path", to: redirect('/')
   devise_for :users, :skip=>[:registrations]
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
